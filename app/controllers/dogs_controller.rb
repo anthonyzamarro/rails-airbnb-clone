@@ -11,7 +11,7 @@ class DogsController < ApplicationController
     @dog = Dog.new(dogs_params)
     @dog.user = current_user
     if @dog.save
-      redirect_to profile_path(current_user)
+      redirect_to profile_path
     else
       render :new
     end
@@ -23,8 +23,9 @@ class DogsController < ApplicationController
   end
 
   def destroy
+    @dog = Dog.find(params[:id])
     @dog.destroy
-    redirect_to root_path
+    redirect_to profile_path
   end
 
   private

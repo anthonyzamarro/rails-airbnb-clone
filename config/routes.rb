@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [ :update, :destroy ]
-  resources :dogs, only: [ :new, :create, :destroy, :update, :index ]
-  resources :bookings, only: [ :create ] do
+  resources :dogs, only: [ :new, :create, :destroy, :update, :index ] do
+    member do
+    resources :bookings, only: [ :create ]
+    end
+  end
+  resources :bookings, only: [ :edit ] do
     member do
     patch 'accept'
     patch 'cancel'
@@ -13,9 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-
   get 'users/profile', to: 'users#profile', as: 'profile'
-
 end
 
 # devise_for :users,

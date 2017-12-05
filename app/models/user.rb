@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :dogs, dependent: :destroy
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   belongs_to :registration
 

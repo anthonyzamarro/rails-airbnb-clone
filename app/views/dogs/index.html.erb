@@ -1,3 +1,9 @@
-<% @dogs.each do |dog| %>
-  <%= dog %>
+<h1>All Dogs</h1>
+<ul>
+  <% @dogs.each do |dog| %>
+
+  <li><%= link_to dog.name, bookings_path(dog), method: :post %></li>
+
 <% end %>
+</ul>
+
