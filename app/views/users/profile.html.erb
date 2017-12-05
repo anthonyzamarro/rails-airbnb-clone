@@ -1,2 +1,10 @@
-<h1>Users#profile</h1>
-<p>Find me in app/views/users/profile.html.erb</p>
+<h1>Your Profile</h1>
+
+<% current_user.dogs.each do |dog| %>
+ <%  dog.bookings.each do |booking| %>
+
+  <%= button_to 'accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success'  %>
+
+  <%= button_to 'decline', accept_booking_path(booking), method: :patch, class: 'btn btn-danger'  %>
+  <% end  %>
+<% end %>

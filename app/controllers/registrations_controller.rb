@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :trackable, :validatable
 
   def create
     super do
@@ -9,7 +11,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
-    edit_user_path(resource.user)
+      profile_path
   end
-
 end

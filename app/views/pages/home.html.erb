@@ -1,2 +1,4 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @dogs.each do |dog| %>
+  <h1>WE LOVE YOU</h1>
+  - <%= dog.name %>
+<% end %>

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @dogs = Dogs.all.first(10)
+    @dogs = Dog.all
   end
 end
