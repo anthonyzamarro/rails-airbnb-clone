@@ -1,40 +1,42 @@
-<h1>Welcome <%= current_user.registration.email %></h1>
-  <% current_user.bookings.each do |booking| %>
-    <p>
+<div class="container">
+  <div class="row_profile">
+    <div class="col-xs-12-col-sm-6-col-md-offset-4">
 
-      <%= booking.dog.name %>
-    </p>
-  <% end  %>
-
-<%= button_to 'Borrow a Dog', dogs_path, method: :get %>
-
-<%= simple_form_for current_user do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :name %>
-  <%= f.input :city %>
-  <%= f.input :owner %>
-  <%= f.button :submit %>
-<% end %>
-<h3> <%= current_user.name %></h3>
-<h3> <%= current_user.city %></h3>
-
-<%= button_to 'Add Dog', new_dog_path, method: :get %>
-<ul>
-  <% current_user.dogs.each do |dog| %>
-  <li>
-    <%= cl_image_tag dog.photo.path, width: 300, height: 200, crop: :fill %>
-    <%= dog.name %><%=  button_to 'destroy', dog_path(dog), method: :delete, class: 'btn btn-success' %>
-  </li>
-
-    <% if dog.bookings %>
-      <%  dog.bookings.each do |booking| %>
+      <h1 class="profile_header">Welcome <%= current_user.registration.email %></h1>
+      <% current_user.bookings.each do |booking| %>
+      <p>
+        <%= booking.dog.name %>
+      </p>
+      <% end  %>
+<!--       <%= simple_form_for current_user do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name %>
+      <%= f.input :city %>
+      <%= f.input :owner %>
+      <%= f.button :submit %>
+      <% end %> -->
+<!--       <h3> <%= current_user.name %></h3>
+      <h3> <%= current_user.city %></h3> -->
+      <h3 class="profile_header"> Want to borrow </h3>
+      <%= button_to 'Borrow a Dog', dogs_path, method: :get, class: "btn btn-primary center_button" %>
+      <h3 class="profile_header"> Your dogs </h3>
+      <%= button_to 'Add Dog', new_dog_path, method: :get, class: "btn btn-primary add_button"%>
+      <ul>
+        <% current_user.dogs.each do |dog| %>
+        <li>
+          <%= cl_image_tag dog.photo.path, width: 300, height: 200, crop: :fill %>
+          <%= dog.name %><%=  button_to 'destroy', dog_path(dog), method: :delete, class: 'btn btn-success' %>
+        </li>
+        <% if dog.bookings %>
+        <%  dog.bookings.each do |booking| %>
         <%= button_to 'accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success'  %>
-
         <%= button_to 'decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger'  %>
-      <% end %>
-    <% end  %>
-  <% end %>
-</ul>
+        <% end %>
+        <% end  %>
+        <% end %>
+      </ul>
+      <%= button_to 'Delete Account', user_path(current_user), method: :delete, class: "btn btn-danger center_button"%>
 
-<%= button_to 'Delete Account', user_path(current_user), method: :delete %>
+    </div>
+  </div>
+</div>
