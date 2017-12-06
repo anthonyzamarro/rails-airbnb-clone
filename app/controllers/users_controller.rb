@@ -4,8 +4,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.update(users_params)
-    redirect_to profile_path
+    current_user.name = users_params[:name]
+    current_user.city = users_params[:city]
+    if current_user.save
+      redirect_to profile_path
+    else
+      render :edit
+    end
   end
 
   def destroy
