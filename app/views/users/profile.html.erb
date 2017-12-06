@@ -2,7 +2,7 @@
   <div class="row_profile">
     <div class="col-xs-12-col-sm-6-col-md-offset-4">
 
-      <h1 class="profile_header">Welcome <%= current_user.registration.email %></h1>
+      <h1 class="profile_header">Welcome <%= current_user.name %></h1>
       <% current_user.bookings.each do |booking| %>
       <p>
         <%= booking.dog.name %>
