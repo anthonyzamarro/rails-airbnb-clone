@@ -3,16 +3,6 @@
     <div class="col-xs-12-col-sm-6-col-md-offset-4">
 
       <h1 class="profile_header">Welcome <%= current_user.name %></h1>
-<!--       <%= simple_form_for current_user do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :name %>
-      <%= f.input :city %>
-      <%= f.input :owner %>
-      <%= f.button :submit %>
-      <% end %> -->
-<!--       <h3> <%= current_user.name %></h3>
-      <h3> <%= current_user.city %></h3> -->
-
       <h3 class="profile_header"> Want to borrow </h3>
       <%= button_to 'Borrow a Dog', dogs_path, method: :get, class: "btn btn-primary center_button" %>
       <ul>
