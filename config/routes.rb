@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :registrations, :controllers => { registrations: "registrations"}
+
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [ :update, :destroy ]
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   get 'users/profile', to: 'users#profile', as: 'profile'
+
+  mount Attachinary::Engine => "/attachinary"
 end
 
 # devise_for :users,

@@ -2,7 +2,9 @@
 <ul>
   <% @dogs.each do |dog| %>
 
-  <li><%= link_to dog.name, bookings_path(dog), method: :post %></li>
+  <li>
+    <%= link_to dog.name, bookings_path(dog), method: :post %>
+  </li>
 
 <% end %>
 </ul>

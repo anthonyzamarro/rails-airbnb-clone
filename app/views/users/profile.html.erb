@@ -24,6 +24,7 @@
       <ul>
         <% current_user.dogs.each do |dog| %>
         <li>
+          <%= cl_image_tag dog.photo.path, width: 300, height: 200, crop: :fill %>
           <%= dog.name %><%=  button_to 'destroy', dog_path(dog), method: :delete, class: 'btn btn-success' %>
         </li>
         <% if dog.bookings %>
