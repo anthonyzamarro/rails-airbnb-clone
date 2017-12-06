@@ -1,6 +1,6 @@
       <%= simple_form_for current_user do |f| %>
       <%= f.error_notification %>
-      <%= f.input :name %>
-      <%= f.input :city %>
+      <%= f.input :name, required: true, autofocus: true  %>
+      <%= f.input :city, required: true, autofocus: true  %>
       <%= f.button :submit %>
       <% end %>
