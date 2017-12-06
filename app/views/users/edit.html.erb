@@ -1,6 +1,19 @@
-      <%= simple_form_for current_user do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :name, required: true, autofocus: true  %>
-      <%= f.input :city, required: true, autofocus: true  %>
-      <%= f.button :submit %>
-      <% end %>
+
+<div class="container">
+  <div class="row_edit">
+    <div class="col-xs-12-col-sm-6-col-md-offset-4">
+      <h2 class="header_edit">
+        More information
+      </h2>
+        <%= simple_form_for current_user do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name, required: true, autofocus: true  %>
+        <%= f.input :city, required: true, autofocus: true  %>
+        <%= f.button :submit, :class => "btn btn-primary" %>
+        <% end %>
+
+    </div>
+  </div>
+</div>
+
+
