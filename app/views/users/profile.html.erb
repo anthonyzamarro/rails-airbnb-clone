@@ -18,9 +18,9 @@
 <!--       <h3> <%= current_user.name %></h3>
       <h3> <%= current_user.city %></h3> -->
       <h3 class="profile_header"> Want to borrow </h3>
-      <%= button_to 'Borrow a Dog', dogs_path, method: :get %>
+      <%= button_to 'Borrow a Dog', dogs_path, method: :get, class: "btn btn-primary center_button" %>
       <h3 class="profile_header"> Your dogs </h3>
-      <%= button_to 'Add Dog', new_dog_path, method: :get %>
+      <%= button_to 'Add Dog', new_dog_path, method: :get, class: "btn btn-primary add_button"%>
       <ul>
         <% current_user.dogs.each do |dog| %>
         <li>
@@ -34,7 +34,7 @@
         <% end  %>
         <% end %>
       </ul>
-      <%= button_to 'Delete Account', user_path(current_user), method: :delete %>
+      <%= button_to 'Delete Account', user_path(current_user), method: :delete, class: "btn btn-danger center_button"%>
 
     </div>
   </div>
