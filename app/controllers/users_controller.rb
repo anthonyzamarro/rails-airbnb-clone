@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+
   def profile
+    redirect_to edit_user_path(current_user) if current_user.name == nil || current_user.city == nil
     @dogs = current_user.dogs
   end
 
