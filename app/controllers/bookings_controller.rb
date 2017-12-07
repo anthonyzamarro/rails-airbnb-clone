@@ -2,9 +2,9 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [ :accept, :cancel, :decline ]
   def create
     @booking = Booking.new(user: current_user, dog: set_dog, status: 'pending')
-    if @booking.save
+     if @booking.save
       redirect_to profile_path
-    else
+      else
       render :new
     end
   end
