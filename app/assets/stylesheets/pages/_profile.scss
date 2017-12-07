@@ -21,6 +21,15 @@
 }
 
 .accepted_status {
+  font-variant: small-caps;
+  font-weight: bolder;
+  color: #32b796;
+  font-size: 28px;
+}
 
-  color: green;
+.pending_status {
+  font-variant: small-caps;
+  font-weight: bolder;
+  color: black;
+  font-size: 28px;
 }
