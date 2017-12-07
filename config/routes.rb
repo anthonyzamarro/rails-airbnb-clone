@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :registrations, :controllers => { registrations: "registrations"}
+  devise_for :registrations, :controllers => {
+      registrations: "registrations",
+      omniauth_callbacks: 'registrations/omniauth_callbacks'
+  }
 
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [ :update, :destroy, :edit ]
+
   resources :dogs, only: [ :new, :create, :destroy, :update, :index ] do
     member do
     resources :bookings, only: [ :create ]
