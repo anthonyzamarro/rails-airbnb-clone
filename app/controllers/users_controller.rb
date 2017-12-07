@@ -23,14 +23,6 @@ class UsersController < ApplicationController
    redirect_to root_path
   end
 
-  def set_name
-    return current_user.first_name + " " + current_user.last_name if current_user.first_name
-    return "Input name"
-    # @new_name = "Input name"
-    # @new_name = current_user.first_name + " " + current_user.last_name if current_user.first_name
-  end
-  helper_method :set_name
-
   private
 
   def users_params
