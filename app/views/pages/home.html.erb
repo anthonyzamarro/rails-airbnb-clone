@@ -1,30 +1,11 @@
-<div class="container">
-  <div class="row_main">
-    <% if registration_signed_in? %>
-    <div class="col-xs-12 col-sm-6 col-md-offset-3">
-
-<!--       <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
-        <div class="banner-content">
-          <h1>Dogs'R'Us</h1>
-          <p>Borrow a dog</p>
-          <a class="btn btn-primary btn-lg">Profile</a>
-        </div>
-      </div> -->
-
-      <%= image_tag "paw-print-logo.svg", height: 200, :class => "img_main_logo" %>
-      <h1 class="header_main">
-      Dogs ' R ' Us
-      </h1>
-
-    <%= link_to "Go to Profile", profile_path, :class => "profile_button btn btn-primary" %>
-
-    </div>
-
-
+<% if registration_signed_in? %>
+<%= render 'shared/banner_login'  %>
     <% else %>
-
+    <%= render 'shared/banner_logout'  %>
+    <div class="container">
+      <div class="row_main">
     <div class="col-xs-12 col-sm-6 col-md-offset-3">
-      <%= image_tag "paw-print-logo.svg", height: 200, :class => "img_main_log_out" %>
+      <%# image_tag "paw-print-logo.svg", height: 200, :class => "img_main_log_out" %>
       <h1 class="header_main">
       Dogs ' R ' Us
       </h1>
@@ -41,11 +22,7 @@
       Forgot password?
       </h6>
       <p class="terms"> By signing up or logging in you agree with our Terms and Conditions</p>
-      <% @dogs.each do |dog| %>
-      <h1>WE LOVE YOU</h1>
-      - <%= dog.name %>
-      <% end %>
     </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
+</div>
