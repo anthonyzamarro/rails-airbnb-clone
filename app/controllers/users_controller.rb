@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def profile
+    redirect_to edit_user_path(current_user) if current_user.name == nil || current_user.city == nil
     @dogs = current_user.dogs
   end
 
@@ -21,6 +22,14 @@ class UsersController < ApplicationController
    current_user.registration.destroy
    redirect_to root_path
   end
+
+  def set_name
+    return current_user.first_name + " " + current_user.last_name if current_user.first_name
+    return "Input name"
+    # @new_name = "Input name"
+    # @new_name = current_user.first_name + " " + current_user.last_name if current_user.first_name
+  end
+  helper_method :set_name
 
   private
 

@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.status = 'accept'
+    # @booking.approve.save
     if @booking.save
       redirect_to profile_path
     else
