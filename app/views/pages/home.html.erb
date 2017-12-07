@@ -13,15 +13,9 @@
       Borrow a dog with
       <br> us in just 3 steps!
       </h3>
-      <h5 class="facebook_button btn btn-primary">
-      Continue with facebook
-      </h5>
       <br>
-      <%= link_to "Sign up", new_registration_registration_path, :class => "sign_up_button btn btn-danger" %>
-      <h6 class="sign_in_main">
-      Forgot password?
-      </h6>
-      <p class="terms"> By signing up or logging in you agree with our Terms and Conditions</p>
+      <%= link_to "Sign up", new_registration_registration_path, :class => "sign_up_button btn btn-primary" %>
+      <%= link_to "Log in", new_registration_session_path, :class => "sign_in_button btn btn-primary" %>
     </div>
     <% end %>
   </div>
