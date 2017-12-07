@@ -49,7 +49,8 @@
 }
 
 .dog-card {
-  padding:20px;
+  padding:30px;
+  min-height: 28vw;
   display:flex;
   flex-direction:column;
   text-align: center;
@@ -58,8 +59,23 @@
   box-shadow: 1px 1px 12px lightgrey;
 }
 
+.dog-card-wrapper {
+  padding:10px 30px;
+}
+
 .dog-image img {
-  width: 80%;
+  width: 70%;
+}
+
+.dog-image {
+  flex: 1 1 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.dog-info {
+  flex: 1 1 50%;
 }
 
 .delete-dog {
