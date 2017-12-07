@@ -1,9 +1,11 @@
 <h1 class="all_dogs_header">All Dogs</h1>
 <ul class="list_dogs_names">
   <% @dogs.each do |dog| %>
-  <li>
-    <%= link_to dog.name, bookings_path(dog), method: :post %>
-  </li>
+  <% if current_user.city != dog.user.city %>
+      <li>
+        <%= link_to dog.name, bookings_path(dog), method: :post %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 
