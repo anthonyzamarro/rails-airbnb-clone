@@ -6,32 +6,14 @@
   color: white;
   position: relative;
 }
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
-}
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
+
 .card-description {
   position: absolute;
   bottom: 10px;
   left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
+  h2 {
+    font-size: 24px;
+  }
 }
 .card-link {
   position: absolute;
@@ -43,9 +25,9 @@
   background: black;
   opacity: 0;
 }
-.card-link:hover {
-  opacity: 0.1;
-}
+// .card-link:hover {
+//   opacity: 0.1;
+// }
 
 
 .all_dogs_header {
@@ -53,7 +35,18 @@
   text-align: center;
 }
 
-.list_dogs_names {
-
-  text-align: center;
+.card:hover .text-behind {
+  opacity: 1;
+  visibility: visible;
+}
+.text-behind {
+  background-color: #fff;
+  // box-sizing: border-box;
+  height: 100%;
+  opacity: 0;
+  padding: 2em;
+  // top: 0;
+  transition: opacity .5s ease, visibility .5s;
+  visibility: hidden;
+  // width: 100%;
 }
