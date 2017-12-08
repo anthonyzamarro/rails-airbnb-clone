@@ -12,7 +12,7 @@
         <% if booking.status == 'accept' %>
           <span class="accepted_status">accepted</span>
         <% elsif booking.status == 'pending' %>
-          <span class="pending_status">pending</span>
+        <span class="pending_status"><%=  %></span>
         <% end %> <br><br>
         <%= button_to 'Cancel booking', cancel_booking_path(booking), method: :patch, class: 'btn btn-default' %>
       </div>
