@@ -1,16 +1,17 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [ :accept, :cancel, :decline ]
+  before_action :set_user, only: [ :create ]
+  before_action :set_dog, only: [ :create ]
   def create
-    @booking = Booking.new(user: current_user, dog: set_dog, status: 'pending')
-     if @booking.save
+    @booking = Booking.new(booking_params)
+    @booking.dog = @dog
+    @booking.user = @user
+    @booking.status = 'pending'
+    if @booking.save
       redirect_to profile_path
-      else
-      render :new
+    else
+      render 'dogs/index'
     end
-  end
-
-  def set_dog
-    @dog = Dog.find(params[:id])
   end
 
   def accept
@@ -42,7 +43,19 @@ class BookingsController < ApplicationController
 
   private
 
+  def set_dog
+    @dog = Dog.find(params[:dog_id])
+  end
+
+  def set_user
+    @user = current_user
+  end
+
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:date)
   end
 end
