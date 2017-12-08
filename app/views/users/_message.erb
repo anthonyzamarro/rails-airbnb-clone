@@ -1,16 +1,16 @@
 <div class="message">
-                  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                  <div class="message-name">
-                    <% if booking.status == 'pending' %>
-                      <h3><%= booking.user.name %></h3>
-                      <p>10/07/17</p>
-                    <% end %>
-                  </div>
-                  <div class="message-body">
-                    <p><strong><%= booking.user.name %> has requested to book your dog!</strong></p>
-                  </div>
-                  <div class="message-status">
-                     <%= button_to 'accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success'  %>
-                     <%= button_to 'decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger'  %>
-                  </div>
-                </div>
+  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <div class="message-name">
+    <% if booking.status == 'pending' %>
+      <h3><%= booking.user.name %></h3>
+      <p>10/07/17</p>
+    <% end %>
+  </div>
+  <div class="message-body">
+    <p><strong><%= booking.user.name %> has requested to book your dog!</strong></p>
+  </div>
+  <div class="message-status">
+     <%= button_to 'accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success'  %>
+     <%= button_to 'decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger'  %>
+  </div>
+</div>
