@@ -11,7 +11,8 @@
         <p><%= booking.dog.name %></p>
         <% if booking.status == 'accept' %>
           <span class="accepted_status">accepted</span>
-        <%= button_to 'Return dog', cancel_booking_path(booking), method: :patch, class: 'btn btn-default' %>
+          <%= render "shared/modal", booking: booking %>
+          <button class="btn btn-default" onClick="toggleModal()">Return Dog</button>
         <% else %>
         <%= button_to 'Cancel booking', cancel_booking_path(booking), method: :patch, class: 'btn btn-default' %>
         <span class="pending_status"><%=  %></span>
