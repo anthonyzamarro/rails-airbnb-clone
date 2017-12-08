@@ -11,10 +11,12 @@
         <p><%= booking.dog.name %></p>
         <p><%= booking.date %></p>
         <% if booking.status == 'accept' %>
-          <span class="accepted_status">accepted</span>
-        <% elsif booking.status == 'pending' %>
-        <% end %> <br><br>
+          <p class="accepted_status">accepted</p>
+          <%= button_to 'Return to owner', cancel_booking_path(booking), method: :patch, class: 'btn btn-default' %>
+        <% else %>
         <%= button_to 'Cancel booking', cancel_booking_path(booking), method: :patch, class: 'btn btn-default' %>
+        <span class="pending_status"><%=  %></span>
+        <% end %> <br><br>
       </div>
     </div>
   </div>

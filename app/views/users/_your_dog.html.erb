@@ -6,7 +6,9 @@
     <%= link_to '', dog_bookings_path(dog), :method => :post, :class=>"ui-button-text button_text" %>
     <div class="card-link"></div>
     <div class="text-behind">
-      <%= dog.description %>
+      <%= dog.description %><br><br>
+      Rating:
+      <h1><%= dog.rating %></h1>
     </div>
     <%=  button_to 'X', dog_path(dog), method: "delete",style: "z-index:999", class: 'btn btn-danger name_yourdog delete-dog' %>
   </div>

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :dogs, only: [ :new, :create, :destroy, :update, :index ] do
     resources :bookings, only: [ :create ]
     member do
-    resources :ratings, only: [ :create ]
+    resources :ratings, only: [ :create, :new ]
     end
   end
   resources :bookings, only: [ :edit ] do
@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     patch 'decline'
     end
   end
-
   get 'users/profile', to: 'users#profile', as: 'profile'
   mount Attachinary::Engine => "/attachinary"
 end

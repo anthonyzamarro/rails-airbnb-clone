@@ -9,14 +9,12 @@
           <% end %>
         <% end %>
       <% end %>
+      <%= render 'borrow_dog' %>
   </div>
 </div>
 
-</br><%= button_to "Rent another dog", dogs_path, method: :get, class: "btn btn-success center_button" %></br></br>
-
 <div class="row" style="padding: 0px 100px">
-  <h3 class="profile_header"> Requests for your dogs </h3>
-  <%= button_to 'Add Dog', new_dog_path, method: :get, class: "btn btn-primary add_button"%></br></br>
+  <h3 class="profile_header"> Requests for your dogs </h3><br>
   <% current_user.dogs.each do |dog| %>
     <div class="dog-request-container row">
       <%= render 'your_dog', dog: dog %>
@@ -31,5 +29,6 @@
       </div>
     </div>
   <% end %>
+  <%= button_to 'Add Dog', new_dog_path, method: :get, class: "btn btn-default"%></br></br>
   <%= button_to 'Delete Account', user_path(current_user), method: :delete, class: "btn btn-danger center_button"%>
 </div>
