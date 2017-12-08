@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :dogs, only: [ :new, :create, :destroy, :update, :index ] do
     member do
     resources :bookings, only: [ :create ]
-    resources :ratings, only: [ :create ]
+    resources :ratings, only: [ :create, :new ]
     end
   end
   resources :bookings, only: [ :edit ] do

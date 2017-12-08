@@ -1,0 +1,6 @@
+      <%= simple_form_for [@dog, @rating] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :rating, label: false, placeholder: "Add rating" %>
+      <%= f.button :submit %>
+      <% end %>
+
