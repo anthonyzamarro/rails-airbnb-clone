@@ -4,8 +4,12 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @rating = Rating.create(ratings_params)
-    redirect_to profile_path(current_user)
+    @rating = Rating.new(rating: params[:id], ratings_params)
+    if @rating.save
+      redirect_to profile_path
+    else
+      render :new
+    end
   end
 
   def ratings_params

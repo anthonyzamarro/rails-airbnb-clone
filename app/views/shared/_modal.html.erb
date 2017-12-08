@@ -1,9 +1,13 @@
-
-
 <div id="modal-wrapper">
   <div id="modal">
     <h2> Give your dog a review</h2>
-    <%= button_to 'Return dog', cancel_booking_path(booking), method: :patch, class: 'btn btn-default' %>
+    <%= simple_form_for [booking.dog, booking.dog.rating] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :rating, label: false, placeholder: "Add rating" %>
+      <%= f.button :submit %>
+    <% end %>
+
+    <%= button_to 'Give rating', cancel_booking_path(booking), method: :get, class: 'btn btn-default' %>
     <button onClick="toggleModal()">Close</button>
   </div>
 </div>
