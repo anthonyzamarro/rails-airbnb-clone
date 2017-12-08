@@ -1,8 +1,7 @@
 <div class="container_profile">
-  <h1 class="profile_header">Your dashboard <%= current_user.name %></h1>
+  <h1 class="profile_header">Welcome, <%= current_user.name %></h1>
   <div class="row" style="padding: 0px 100px">
-    <h2 class="profile_header">Dogs you're renting</h2>
-    <%= button_to "Rent another dog", dogs_path, method: :get, class: "btn btn-primary center_button" %>
+    <h3 class="profile_header">Dogs you're renting</h2>
     </br>
     </br>
       <% if current_user.bookings %>
@@ -35,6 +34,8 @@
 </div>
 
 </br>
+    <%= button_to "Rent another dog", dogs_path, method: :get, class: "btn btn-success center_button" %>
+
 </br>
 </br>
 
