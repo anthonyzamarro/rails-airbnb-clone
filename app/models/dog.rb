@@ -5,7 +5,7 @@ class Dog < ApplicationRecord
   has_attachment :photo
   validates :name, presence: true
   validates :species, presence: true
-  validates :description, presence: true, length: { maximum: 100 }
+  validates :description, presence: true, length: { maximum: 300 }
   def rating
     if self.ratings.size > 0
       sum = 0
