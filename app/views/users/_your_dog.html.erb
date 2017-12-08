@@ -7,8 +7,6 @@
     <div class="card-link"></div>
     <div class="text-behind">
       <%= dog.description %><br><br>
-      Rating:
-      <h1><%= dog.rating %></h1>
     </div>
     <%=  button_to 'X', dog_path(dog), method: "delete",style: "z-index:999", class: 'btn btn-danger name_yourdog delete-dog' %>
   </div>
