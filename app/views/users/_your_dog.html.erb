@@ -1,0 +1,13 @@
+<div class="col-xs-4 col-sm-4 col-md-4">
+          <div class="card" style=" background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path dog.photo.path %>')">
+            <div class="card-description">
+              <h2><%= dog.name %></h2>
+            </div>
+            <%= link_to '', bookings_path(dog), :method => :post, :class=>"ui-button-text button_text" %>
+            <div class="card-link"></div>
+            <div class="text-behind">
+              <%= dog.description %>
+            </div>
+            <%=  button_to 'X', dog_path(dog), method: "delete",style: "z-index:999", class: 'btn btn-danger name_yourdog delete-dog' %>
+          </div>
+        </div>

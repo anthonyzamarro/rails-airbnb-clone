@@ -1,90 +1,35 @@
 <div class="container_profile">
   <h1 class="profile_header">Welcome, <%= current_user.name %></h1>
   <div class="row" style="padding: 0px 100px">
-    <h3 class="profile_header">Dogs you're renting</h2>
-    </br>
-    </br>
+    <h3 class="profile_header">Dogs you're renting</h2></br></br>
       <% if current_user.bookings %>
         <% current_user.bookings.each do |booking| %>
           <% if booking.status == 'pending' || booking.status == 'accept' %>
-            <div class="col-xs-12 col-sm-4 col-md-4 dog-card-wrapper">
-            <% if booking.status == 'accept' %>
-              <div class="dog-card green-border">
-            <% else %>
-              <div class="dog-card">
-            <% end %>
-                <div class="dog-image">
-                  <%= cl_image_tag booking.dog.photo.path %>
-                </div>
-                <div class="dog-info">
-                  <p><%= booking.dog.name %></p>
-                  <% if booking.status == 'accept' %>
-                    <span class="accepted_status">accepted</span>
-                  <% elsif booking.status == 'pending' %>
-                    <span class="pending_status">pending</span>
-                  <% end %> <br><br>
-                  <%= button_to 'Cancel booking', cancel_booking_path(booking), method: :patch, class: 'btn btn-default' %>
-                </div>
-              </div>
-            </div>
+           <%= render 'your_bookings', booking: booking, current_user: current_user %>
           <% end %>
         <% end %>
       <% end %>
   </div>
 </div>
 
-</br>
-    <%= button_to "Rent another dog", dogs_path, method: :get, class: "btn btn-success center_button" %>
+</br><%= button_to "Rent another dog", dogs_path, method: :get, class: "btn btn-success center_button" %></br></br>
 
-</br>
-</br>
-
-  <div class="row" style="padding: 0px 100px">
-       <h3 class="profile_header"> Requests for your dogs </h3>
-       <%= button_to 'Add Dog', new_dog_path, method: :get, class: "btn btn-primary add_button"%>
-       </br>
-       </br>
-      <% current_user.dogs.each do |dog| %>
-      <div class="dog-request-container row">
-        <div class="col-xs-4 col-sm-4 col-md-4">
-          <div class="card" style=" background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path dog.photo.path %>')">
-            <div class="card-description">
-              <h2><%= dog.name %></h2>
-            </div>
-            <%= link_to '', bookings_path(dog), :method => :post, :class=>"ui-button-text button_text" %>
-            <div class="card-link"></div>
-            <div class="text-behind">
-              <%= dog.description %>
-            </div>
-            <%=  button_to 'X', dog_path(dog), method: "delete",style: "z-index:999", class: 'btn btn-danger name_yourdog delete-dog' %>
-          </div>
-        </div>
-        <div class="col-xs-8 col-sm-8 col-md-8">
-          <% if dog.bookings %>
-            <% dog.bookings.each do |booking| %>
-              <% if booking.status == 'pending' %>
-                <div class="message">
-                  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-                  <div class="message-name">
-                    <% if booking.status == 'pending' %>
-                      <h3><%= booking.user.name %></h3>
-                      <p>10/07/17</p>
-                    <% end %>
-                  </div>
-                  <div class="message-body">
-                    <p><strong><%= booking.user.name %> has requested to book your dog!</strong></p>
-                  </div>
-                  <div class="message-status">
-                     <%= button_to 'accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success'  %>
-                     <%= button_to 'decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger'  %>
-                  </div>
-                </div>
-              <% end %>
+<div class="row" style="padding: 0px 100px">
+  <h3 class="profile_header"> Requests for your dogs </h3>
+  <%= button_to 'Add Dog', new_dog_path, method: :get, class: "btn btn-primary add_button"%></br></br>
+  <% current_user.dogs.each do |dog| %>
+    <div class="dog-request-container row">
+      <%= render 'your_dog', dog: dog %>
+      <div class="col-xs-8 col-sm-8 col-md-8">
+        <% if dog.bookings %>
+          <% dog.bookings.each do |booking| %>
+            <% if booking.status == 'pending' %>
+              <%= render 'message', booking: booking %>
             <% end %>
           <% end %>
-        </div>
+        <% end %>
       </div>
-      <% end %>
-
-     <%= button_to 'Delete Account', user_path(current_user), method: :delete, class: "btn btn-danger center_button"%>
-  </div>
+    </div>
+  <% end %>
+  <%= button_to 'Delete Account', user_path(current_user), method: :delete, class: "btn btn-danger center_button"%>
+</div>
