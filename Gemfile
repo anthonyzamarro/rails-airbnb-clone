@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'pry-byebug'
