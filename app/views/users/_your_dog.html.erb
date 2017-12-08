@@ -3,7 +3,7 @@
     <div class="card-description">
       <h2><%= dog.name %></h2>
     </div>
-    <%= link_to '', bookings_path(dog), :method => :post, :class=>"ui-button-text button_text" %>
+    <%= link_to '', dog_bookings_path(dog), :method => :post, :class=>"ui-button-text button_text" %>
     <div class="card-link"></div>
     <div class="text-behind">
       <%= dog.description %><br><br>
