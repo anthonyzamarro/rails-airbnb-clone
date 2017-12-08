@@ -1,0 +1,20 @@
+ <div class="col-xs-12 col-sm-4 col-md-4 dog-card-wrapper">
+            <% if booking.status == 'accept' %>
+              <div class="dog-card green-border">
+            <% else %>
+              <div class="dog-card">
+            <% end %>
+                <div class="dog-image">
+                  <%= cl_image_tag booking.dog.photo.path %>
+                </div>
+                <div class="dog-info">
+                  <p><%= booking.dog.name %></p>
+                  <% if booking.status == 'accept' %>
+                    <span class="accepted_status">accepted</span>
+                  <% elsif booking.status == 'pending' %>
+                    <span class="pending_status">pending</span>
+                  <% end %> <br><br>
+                  <%= button_to 'Cancel booking', cancel_booking_path(booking), method: :patch, class: 'btn btn-default' %>
+                </div>
+              </div>
+            </div>
