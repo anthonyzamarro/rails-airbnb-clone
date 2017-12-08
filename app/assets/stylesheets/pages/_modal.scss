@@ -1,0 +1,32 @@
+#modal {
+  opacity: 1;
+  height: 50vh;
+  width: 50vw;
+  transition: 0.5s;
+  background-color: white;
+  box-shadow: 1px 1px 3px lightgrey;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.visable {
+  opacity: 1 !important;
+  left: 0vw !important;
+}
+
+#modal-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  background-color: rgba(10,10,10,0.2);
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  opacity: 0;
+  position: fixed;
+  top: 0vh;
+  left: -400vw;
+  transition: 0.5s;
+}
