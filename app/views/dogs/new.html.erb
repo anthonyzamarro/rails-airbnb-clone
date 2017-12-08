@@ -4,9 +4,9 @@
       <h2 class="new_dog_header"> Add your dog </h2>
       <%= simple_form_for @dog do |f| %>
       <%= f.error_notification %>
-      <%= f.input :name %>
-      <%= f.input :description, as: :text %>
-      <%= f.input :species, label: "Breed" %>
+      <%= f.input :name, label: false, placeholder: "Name" %>
+      <%= f.input :description, label: false, placeholder: "Description", as: :text %>
+      <%= f.input :species, label: false, placeholder: "Breed" %>
       <%= f.input :photo, as: :attachinary %>
       <%= f.button :submit %>
       <% end %>
